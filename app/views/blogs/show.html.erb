@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<% if @manifestation %>
+<div style="float:right">
+<!-- <%= @manifestation %> -->
+<p>Today's Book: <%= link_to @manifestation.original_title, @manifestation %></p>
+<%= book_jacket( @manifestation ) %>
+<% @manifestation.items.on_shelf.each do |item| %>
+<%= call_number_label(item) -%>
+<% end %>
+</div>
+<% end %>
+<p>
+  <b>Title:</b>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @blog.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
